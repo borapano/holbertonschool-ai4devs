@@ -1,7 +1,10 @@
 # Prompt Testing Examples
 
 ## Example 1 – Refactoring Prompt
-**Prompt**: You are a senior Python developer. Refactor the following Python function for readability.  
+**Prompt**:  
+Role: Senior Python Developer  
+Task: Refactor the given Python code for better readability and structure.  
+Input Placeholder: [PYTHON_FUNCTION]
 
 **Input**:
 ```python
@@ -15,11 +18,14 @@ def calculate_total(a: int, b: int) -> int:
     return a + (b * 10)
 ```
 
-**Feedback**: Output is correct, but docstring could be more descriptive.
+**Feedback**: Output is correct and the code is more readable. A slightly more detailed docstring could improve the documentation.
 
 
 ## Example 2 – Error Identification Prompt
-**Prompt**: You are a Python debugging assistant. Analyze the code and error message to identify the cause of the problem.  
+**Prompt**:  
+Role: Python Debugging Expert  
+Task: Analyze the code and error message to determine the cause of the issue.  
+Input Placeholder: [CODE_SNIPPET] + [ERROR_MESSAGE]
 
 **Input**:
 ```python
@@ -33,13 +39,16 @@ IndexError: list index out of range
 **AI Output**:
 
 The error occurs because the list contains three elements with indexes 0, 1, and 2.  
-Trying to access index 3 is outside the valid range of the list, which causes the IndexError.
+Attempting to access index 3 exceeds the valid range of the list, which triggers the IndexError.
 
-**Feedback**: The output clearly explains the cause of the error and identifies the incorrect index access.
+**Feedback**: The explanation clearly identifies the incorrect index access and explains why the error occurs.
 
 
 ## Example 3 – Bug Fixing Prompt
-**Prompt**: You are an experienced Python developer. Identify and fix bugs in the following Python code.  
+**Prompt**:  
+Role: Experienced Python Software Engineer  
+Task: Identify and fix bugs in the provided Python code.  
+Input Placeholder: [BUGGY_CODE]
 
 **Input**:
 ```python
@@ -59,11 +68,14 @@ def divide(a, b):
 print(divide(10, 0))
 ```
 
-**Feedback**: The output correctly identifies the problem and adds a check to prevent division by zero.
+**Feedback**: The solution correctly detects the potential division by zero and adds a condition to prevent the runtime error.
 
 
 ## Example 4 – Function Documentation Prompt
-**Prompt**: You are a software documentation specialist. Generate documentation for the following Python function.  
+**Prompt**:  
+Role: Technical Documentation Specialist  
+Task: Generate clear documentation for the provided Python function.  
+Input Placeholder: [FUNCTION_CODE]
 
 **Input**:
 ```python
@@ -73,21 +85,25 @@ def multiply(a, b):
 
 **AI Output**:
 
-**Function Name**: multiply  
-**Description**: Multiplies two numbers and returns the result.  
+Function Name: multiply  
 
-**Parameters**:
+Description: Multiplies two numbers and returns the result.
+
+Parameters:  
 - a (int or float): The first number.  
-- b (int or float): The second number.  
+- b (int or float): The second number.
 
-**Returns**:
+Returns:  
 - int or float: The product of a and b.
 
-**Feedback**: The generated documentation clearly explains the function, its parameters, and the return value.
+**Feedback**: The generated documentation clearly explains the purpose of the function, its parameters, and the return value.
 
 
 ## Example 5 – Unit Test Generation Prompt
-**Prompt**: You are a Python testing engineer. Generate unit tests for the following Python function.  
+**Prompt**:  
+Role: Python QA Engineer  
+Task: Generate unit tests for the given Python function.  
+Input Placeholder: [FUNCTION_CODE]
 
 **Input**:
 ```python
@@ -114,4 +130,4 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-**Feedback**: The generated tests cover basic scenarios such as positive numbers, negative numbers, and zero, which helps verify the correctness of the function.
+**Feedback**: The generated tests cover multiple cases including positive numbers, negative numbers, and zero, helping ensure the correctness of the function.
