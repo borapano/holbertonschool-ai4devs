@@ -1,7 +1,8 @@
 # Prompt Testing Examples
 
 ## Example 1 – Refactoring Prompt
-**Prompt**: Refactor the following Python function for readability.  
+**Prompt**: You are a senior Python developer. Refactor the following Python function for readability.  
+
 **Input**:
 ```python
 def calc(a,b): return a+b*10
@@ -16,8 +17,10 @@ def calculate_total(a: int, b: int) -> int:
 
 **Feedback**: Output is correct, but docstring could be more descriptive.
 
+
 ## Example 2 – Error Identification Prompt
-**Prompt**: Analyze the code and error message to identify the cause of the problem.  
+**Prompt**: You are a Python debugging assistant. Analyze the code and error message to identify the cause of the problem.  
+
 **Input**:
 ```python
 numbers = [1, 2, 3]
@@ -25,20 +28,19 @@ print(numbers[3])
 ```
 
 Error:
-```
 IndexError: list index out of range
-```
 
 **AI Output**:
-```
-The error occurs because the list contains three elements with indexes 0, 1, and 2.
+
+The error occurs because the list contains three elements with indexes 0, 1, and 2.  
 Trying to access index 3 is outside the valid range of the list, which causes the IndexError.
-```
 
 **Feedback**: The output clearly explains the cause of the error and identifies the incorrect index access.
 
+
 ## Example 3 – Bug Fixing Prompt
-**Prompt**: Identify and fix bugs in the following Python code.  
+**Prompt**: You are an experienced Python developer. Identify and fix bugs in the following Python code.  
+
 **Input**:
 ```python
 def divide(a, b):
@@ -48,7 +50,7 @@ print(divide(10, 0))
 ```
 
 **AI Output**:
-```
+```python
 def divide(a, b):
     if b == 0:
         return "Error: division by zero"
@@ -59,8 +61,10 @@ print(divide(10, 0))
 
 **Feedback**: The output correctly identifies the problem and adds a check to prevent division by zero.
 
+
 ## Example 4 – Function Documentation Prompt
-**Prompt**: Generate documentation for the following Python function.  
+**Prompt**: You are a software documentation specialist. Generate documentation for the following Python function.  
+
 **Input**:
 ```python
 def multiply(a, b):
@@ -68,22 +72,23 @@ def multiply(a, b):
 ```
 
 **AI Output**:
-```
-Function Name: multiply
-Description: Multiplies two numbers and returns the result.
 
-Parameters:
-- a (int or float): The first number.
-- b (int or float): The second number.
+**Function Name**: multiply  
+**Description**: Multiplies two numbers and returns the result.  
 
-Returns:
+**Parameters**:
+- a (int or float): The first number.  
+- b (int or float): The second number.  
+
+**Returns**:
 - int or float: The product of a and b.
-```
 
 **Feedback**: The generated documentation clearly explains the function, its parameters, and the return value.
 
+
 ## Example 5 – Unit Test Generation Prompt
-**Prompt**: Generate unit tests for the following Python function.  
+**Prompt**: You are a Python testing engineer. Generate unit tests for the following Python function.  
+
 **Input**:
 ```python
 def add(a, b):
