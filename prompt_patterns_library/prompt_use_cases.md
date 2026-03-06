@@ -1,9 +1,9 @@
 ## Code Quality
 
-- **Code Simplification**
-  - **Goal**: Make complex code easier to understand
-  - **Input**: Complicated code snippet
-  - **Output**: Simplified version of the code
+- **Refactoring**
+  - **Goal**: Improve readability and performance  
+  - **Input**: Source function in [LANGUAGE]  
+  - **Output**: Optimized code + explanation 
 
 - **Duplicate Code Detection**
   - **Goal**: Identify and remove repeated code
