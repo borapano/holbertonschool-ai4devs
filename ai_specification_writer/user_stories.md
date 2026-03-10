@@ -84,25 +84,3 @@ As a facility manager, I want to reserve parking spaces for carpool participants
 - Parking access is granted only to eligible vehicles.
 
 **Priority**: Medium
-
-
-### User Story 9
-As a corporate employee, I want to log in using my company account so that I can access the platform without creating a new login.
-
-**Acceptance Criteria**:
-- User can authenticate using corporate SSO.  
-- System verifies the employee through the company directory.  
-- Access is granted automatically after authentication.
-
-**Priority**: MVP
-
-
-### User Story 10
-As an employee, I want to see my personal cost savings from carpooling so that I understand the financial benefit of using the platform.
-
-**Acceptance Criteria**:
-- System calculates estimated fuel savings per trip.  
-- Users can view weekly or monthly savings.  
-- Savings are displayed in a personal dashboard.
-
-**Priority**: Low
