@@ -6,7 +6,6 @@ Group expense tracking and bill splitting application designed to help people ma
 ## Core Features
 - Group creation and member management
 - Expense tracking within groups
-- Flexible bill splitting (equal, custom amounts, percentages)
 - Automatic balance calculation between group members
 
 ## Users
