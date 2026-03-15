@@ -10,12 +10,12 @@ Group expense tracking and bill splitting application designed to help people ma
 - Automatic balance calculation between group members
 
 ## Users
-- Friends: managing shared costs during trips or activities
-- Roommates: tracking rent, utilities, and household expenses
-- Student groups: splitting costs for events, projects, or shared living
+- Regular Users: friends, roommates, or groups who want to track and split shared expenses
+- Group Admins: users who create and manage groups, invite members, and oversee group expenses
+- System Administrators: maintain the platform, manage user accounts, and ensure system stability
 
 ## Constraints
-- Accurate and reliable financial calculations
-- Simple and intuitive user interface
-- Secure storage of financial and user data
-- Real-time synchronization for multiple users in the same group
+- Scalability: the system should support a growing number of users and groups without performance issues
+- Compliance: user data and financial information must be stored securely and comply with privacy regulations
+- Cross-platform availability: the application should work on web and mobile devices
+- Data security: secure authentication and protection of financial and personal data
