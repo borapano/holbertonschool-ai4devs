@@ -1,0 +1,13 @@
+graph TD
+  A[API Gateway] --> B[Auth Service]
+  A --> C[Group Service]
+  A --> D[Expense Service]
+  A --> E[Settlement Service]
+  A --> F[Notification Service]
+  A --> G[Analytics Service]
+  B --> H[(Auth Database)]
+  C --> I[(Group Database)]
+  D --> J[(Expense Database)]
+  E --> K[(Settlement Database)]
+  F --> L[(Notification Database)]
+  G --> M[(Analytics Database)]
