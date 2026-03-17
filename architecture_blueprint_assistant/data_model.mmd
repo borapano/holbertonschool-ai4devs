@@ -1,0 +1,6 @@
+erDiagram
+  USER ||--o{ GROUP : joins
+  GROUP ||--o{ EXPENSE : contains
+  EXPENSE ||--o{ PARTICIPANT : involves
+  USER ||--o{ PAYMENT : makes
+  PAYMENT ||--|| EXPENSE : settles
