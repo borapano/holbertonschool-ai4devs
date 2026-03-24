@@ -1,0 +1,50 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Expense Mate API",
+    "version": "1.2.0",
+    "description": "High-compliance API with over 10 distinct CRUD operations."
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": { "message": { "type": "string" }, "status": { "type": "integer" } }
+      },
+      "User": {
+        "type": "object",
+        "properties": { "id": { "type": "string" }, "username": { "type": "string" } }
+      }
+    }
+  },
+  "security": [{ "BearerAuth": [] }],
+  "paths": {
+    "/auth/login": {
+      "post": { "security": [], "responses": { "200": { "description": "OK" }, "401": { "description": "Unauthorized" } } }
+    },
+    "/users/profile": {
+      "get": { "responses": { "200": { "description": "OK" } } },
+      "put": { "responses": { "200": { "description": "Updated" }, "400": { "description": "Bad Request" } } }
+    },
+    "/groups": {
+      "get": { "responses": { "200": { "description": "OK" } } },
+      "post": { "responses": { "201": { "description": "Created" } } }
+    },
+    "/groups/{id}": {
+      "get": { "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "OK" }, "404": { "description": "Not Found" } } },
+      "put": { "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "OK" }, "404": { "description": "Not Found" } } },
+      "delete": { "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "204": { "description": "Deleted" } } }
+    },
+    "/expenses": {
+      "get": { "parameters": [{ "name": "page", "in": "query", "schema": { "type": "integer" } }], "responses": { "200": { "description": "OK" } } },
+      "post": { "responses": { "201": { "description": "Created" }, "400": { "description": "Bad Request" } } }
+    },
+    "/expenses/{id}": {
+      "put": { "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "200": { "description": "OK" }, "404": { "description": "Not Found" } } },
+      "delete": { "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }], "responses": { "204": { "description": "Deleted" } } }
+    }
+  }
+}

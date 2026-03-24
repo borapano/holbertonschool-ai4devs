@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: Expense Mate API
+  description: High-compliance API for Expense Mate with multiple Full CRUD resources, JWT, Pagination, and strict error handling.
+  version: 1.2.0
+servers:
+  - url: https://api.expensemate.com/v1
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Expense:
+      type: object
+      required: [description, amount, payer_id]
+      properties:
+        id: { type: string, format: uuid }
+        description: { type: string }
+        amount: { type: number, minimum: 0.01 }
+        payer_id: { type: string, format: uuid }
+    Group:
+      type: object
+      required: [name]
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: string }
+    User:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        username: { type: string }
+        email: { type: string }
+    Error:
+      type: object
+      properties:
+        message: { type: string }
+        status: { type: integer }
+
+security:
+  - BearerAuth: []
+
+paths:
+  /auth/login:
+    post:
+      summary: User Login
+      security: []
+      responses:
+        200: { description: "Success" }
+        401: { description: "Unauthorized", content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } } }
+
+  /users/profile:
+    get:
+      summary: Get User Profile (Read User)
+      responses:
+        200: { description: "Success", content: { application/json: { schema: { $ref: '#/components/schemas/User' } } } }
+        401: { description: "Unauthorized" }
+    put:
+      summary: Update User Profile (Update User)
+      responses:
+        200: { description: "Profile Updated" }
+        400: { description: "Invalid Data" }
+
+  /groups:
+    get:
+      summary: List all groups (Read Groups)
+      responses:
+        200: { description: "Success" }
+    post:
+      summary: Create a group (Create Group)
+      responses:
+        201: { description: "Created" }
+        400: { description: "Bad Request" }
+
+  /groups/{id}:
+    get:
+      summary: Get group details (Read Single Group)
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        200: { description: "Success" }
+        404: { description: "Group Not Found" }
+    put:
+      summary: Update group info (Update Group)
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        200: { description: "Updated" }
+        404: { description: "Not Found" }
+    delete:
+      summary: Delete a group (Delete Group)
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        204: { description: "Deleted" }
+        404: { description: "Not Found" }
+
+  /expenses:
+    get:
+      summary: List expenses with Pagination (Read Expenses)
+      parameters:
+        - name: page
+          in: query
+          schema: { type: integer, default: 1 }
+        - name: limit
+          in: query
+          schema: { type: integer, default: 10 }
+      responses:
+        200: { description: "Success" }
+    post:
+      summary: Create an expense (Create Expense)
+      responses:
+        201: { description: "Created" }
+        400: { description: "Bad Request" }
+
+  /expenses/{id}:
+    put:
+      summary: Update an expense (Update Expense)
+      parameters: [{ name: id, in: path, required:
