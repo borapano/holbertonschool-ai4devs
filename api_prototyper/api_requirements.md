@@ -12,11 +12,9 @@ Collaborative Group Finance & Expense Sharing
 - **Join Group:** Link a User ID to a Group ID via Invite Code
 - **Post Expense:** Log a new transaction (Amount, Category, Payer)
 - **Calculate Splits:** Automatically generate debt rows for each member
-- **Get Group Summary:** Fetch totals for "Spend Velocity" graphs
 - **Get Member Balances:** Fetch +/- standing for the "Members" card
 - **Update Expense:** Edit or delete an existing transaction
 - **Settle Debt:** Mark specific P2P balances as "Paid"
-- **Get User Profile:** Fetch avatar and personal settings
 - **Search Ledger:** Filter transactions by date, category, or payer
 
 ## Data Rules
