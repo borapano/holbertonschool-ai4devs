@@ -1,7 +1,0 @@
-{
-  "label": "Auto Documentation Generator",
-  "type": "shell",
-  "command": "ai-doc-gen",
-  "args": ["${file}", "--output", "docs/"],
-  "description": "Generates Markdown documentation from code comments and function signatures."
-}

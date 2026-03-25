@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "label": "AI Code Review",
+      "type": "shell",
+      "command": "ai-code-review",
+      "args": ["${file}"],
+      "description": "Runs AI to review the current file for syntax, performance, and coding best practices."
+    },
+    {
+      "label": "Auto Documentation Generator",
+      "type": "shell",
+      "command": "ai-doc-gen",
+      "args": ["${file}", "--output", "docs/"],
+      "description": "Generates Markdown documentation from code comments and function signatures."
+    }
+  ]
+}
