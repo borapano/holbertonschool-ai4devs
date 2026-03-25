@@ -1,0 +1,13 @@
+{
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "javascript": true,
+    "typescript": true,
+    "python": true
+  },
+  "github.copilot.suggestionDelay": 100,
+  "github.copilot.experimental.autocompleteEntireLines": true,
+  "aiWorkflows.codeReview.enabled": true,
+  "aiWorkflows.docGenerator.enabled": true
+}
