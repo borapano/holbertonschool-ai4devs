@@ -1,0 +1,16 @@
+# Reflection on AI-Assisted Productivity
+
+## Introduction
+This project focused on comparing development productivity when solving backend tasks with and without the assistance of an AI coding tool such as GitHub Copilot. The tasks included implementing core features like group creation, joining groups with a code, and adding expenses with splitting logic. The goal was to measure differences in time, code output, and error rates, while also understanding how AI impacts the development workflow.
+
+## AI Strengths
+GitHub Copilot significantly accelerated development, especially in generating boilerplate code and standard patterns. For example, when implementing API endpoints, Copilot quickly suggested the structure for routes, request handling, and basic validation. This reduced the time spent writing repetitive code and allowed faster progress through tasks. Additionally, Copilot was helpful in suggesting logic for common operations, such as iterating over participants and calculating equal splits for expenses. It also improved productivity by reducing the need to constantly search for syntax or examples, as relevant code snippets were generated directly within the IDE.
+
+## AI Weaknesses
+Despite its advantages, Copilot sometimes struggled with more specific or context-dependent logic. In the expense splitting feature, for instance, it generated code that worked for simple cases but did not handle edge cases properly, such as empty participant lists or incorrect data types. In some cases, it suggested overly generic or incorrect implementations that required manual correction. Copilot also lacked awareness of the full application context, occasionally generating code that did not align with the existing data model or naming conventions. This could lead to subtle bugs if the developer accepted suggestions without careful review.
+
+## Human Role
+Manual problem-solving remained essential throughout the project. The developer had to verify the correctness of AI-generated code, ensure proper validation, and handle edge cases that Copilot did not consider. Debugging was still largely a human-driven process, especially when dealing with logical errors rather than syntax issues. Decisions about data structure, relationships between entities, and overall system design required human understanding and could not be fully delegated to AI. The developer also needed to guide Copilot effectively by writing clear prompts and structuring code in a way that improved the relevance of suggestions.
+
+## Conclusion
+Overall, the use of AI significantly improved development speed and reduced effort for routine coding tasks. However, it did not eliminate the need for a solid understanding of programming concepts and careful validation of results. Copilot performed best as a productivity enhancer rather than a replacement for the developer. In real-world scenarios, AI coding assistants can be highly valuable for speeding up development, but they should be used critically, with developers maintaining full control over logic and correctness. The key lesson is that AI is most effective when combined with strong human oversight and problem-solving skills.
