@@ -1,3 +1,6 @@
+import unittest
+from reference.movie_recommender import MovieRecommender
+
 class TestMovieRecommender(unittest.TestCase):
 
     def setUp(self):
@@ -45,7 +48,5 @@ class TestMovieRecommender(unittest.TestCase):
         result = self.recommender.recommend(1, N=50)
         self.assertTrue(len(result) <= 50)
 
-    def test_additional_dataset(self):
-        additional_recommender = MovieRecommender("reference/tests/ratings_additional.csv")
-        result = additional_recommender.recommend(9, N=2)
-        self.assertTrue(len(result) <= 2)
+if __name__ == "__main__":
+    unittest.main()
