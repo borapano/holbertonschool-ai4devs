@@ -1,11 +1,10 @@
 ## Reviewer Comments
-- Missing architectural separation between controller, service, and data layers, reducing long-term scalability and maintainability.
-- Business logic is tightly coupled with filtering logic, making the code harder to test and extend in future iterations.
-- Security issue: user authorization is not explicitly enforced in the filtering flow, risking potential cross-user data access in multi-user environments.
-- Input validation for `category` is incomplete; no strict whitelist or schema enforcement is applied.
-- Error handling is inconsistent; invalid inputs may return silent failures (empty results) instead of structured error responses.
-- Performance concern: filtering is done in-memory instead of at the database/query level, which will not scale with larger datasets.
-- Repeated string normalization inside loops introduces unnecessary overhead and should be extracted into a helper function.
-- Logging may expose sensitive information (user identifiers or financial data), which is unsafe for production environments.
-- Test coverage is incomplete for edge cases such as null inputs, empty datasets, and invalid categories.
-- API contract is not clearly defined, making integration with frontend or external services ambiguous.
+
+- The filtering logic is implemented in-memory, which can lead to incorrect results if the dataset is large or partially loaded; database-level filtering should be used to ensure correctness and scalability.
+- No validation ensures that `category` values match actual stored expense categories, which may result in logically incorrect filtering results (valid-looking queries returning empty or incomplete data).
+- Security issue: user authorization is not enforced in the filtering function itself, meaning a malformed request could potentially access data outside the intended user scope.
+- Error handling does not distinguish between "no results found" and "invalid input", which can lead to incorrect application behavior at the API response level.
+- Business logic and filtering logic are combined in a single function, making it harder to isolate and test filtering correctness independently.
+- Repeated string normalization inside loops can cause inconsistent comparisons and subtle logical bugs if input formats vary (e.g., uppercase/lowercase mismatches).
+- Lack of explicit handling for null or undefined datasets may lead to runtime errors in production scenarios.
+- The API contract does not clearly define expected behavior for edge cases (empty dataset, invalid category), which may lead to inconsistent frontend behavior.
