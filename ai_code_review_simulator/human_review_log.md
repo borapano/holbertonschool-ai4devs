@@ -1,10 +1,10 @@
 ## Reviewer Comments
 
-- The filtering logic is implemented in-memory, which can lead to incorrect results if the dataset is large or partially loaded; database-level filtering should be used to ensure correctness and scalability.
-- No validation ensures that `category` values match actual stored expense categories, which may result in logically incorrect filtering results (valid-looking queries returning empty or incomplete data).
-- Security issue: user authorization is not enforced in the filtering function itself, meaning a malformed request could potentially access data outside the intended user scope.
-- Error handling does not distinguish between "no results found" and "invalid input", which can lead to incorrect application behavior at the API response level.
-- Business logic and filtering logic are combined in a single function, making it harder to isolate and test filtering correctness independently.
-- Repeated string normalization inside loops can cause inconsistent comparisons and subtle logical bugs if input formats vary (e.g., uppercase/lowercase mismatches).
-- Lack of explicit handling for null or undefined datasets may lead to runtime errors in production scenarios.
-- The API contract does not clearly define expected behavior for edge cases (empty dataset, invalid category), which may lead to inconsistent frontend behavior.
+- In-memory filtering can produce incorrect results when data is partially loaded or large; filtering should be moved closer to the data source to ensure correctness and consistency.
+- No strict validation is applied to `category`, allowing invalid values to enter the filtering pipeline and produce misleading empty results.
+- User authorization is not enforced inside the filtering logic, which may allow unauthorized access to data in multi-user scenarios.
+- Error handling does not differentiate between an empty result set and invalid input, which can lead to incorrect system behavior.
+- Business logic is mixed with filtering logic, reducing testability and making it harder to isolate filtering behavior for debugging or unit testing.
+- String normalization is performed repeatedly during iteration, which can introduce unnecessary processing overhead and inconsistent comparisons.
+- Null or undefined dataset inputs are not explicitly handled, which may cause runtime failures in production.
+- API behavior for edge cases (empty dataset, invalid category) is not explicitly defined, leading to inconsistent client-side handling.
