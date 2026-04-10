@@ -2,13 +2,13 @@
 
 ## Reviewer Comments
 
-- The current design mixes business logic and data filtering in a single function, which reduces modularity and makes future refactoring or scaling difficult.
-- The system lacks a clear architectural separation (e.g., controller → service → data layer), which would improve maintainability and testability in larger applications.
-- Error handling strategy is inconsistent; some edge cases return empty results silently instead of structured error responses, making debugging harder.
-- Security review concern: there is no explicit enforcement of user ownership checks at the filtering layer, which could lead to cross-user data access in multi-user environments.
-- Performance concern: filtering is performed in-memory without indexing or query optimization, which will not scale efficiently with large datasets.
-- Testing strategy appears incomplete; there is no evidence of integration or end-to-end tests validating the full request lifecycle.
-- API design lacks explicit contract definition (input schema, output schema, and error codes are not formally documented), reducing usability for other developers.
-- Logging strategy is not standardized and may expose sensitive business data, which could create compliance risks in production environments.
-- Codebase does not clearly separate reusable utilities (e.g., normalization logic), leading to duplication and reduced maintainability.
-- There is limited consideration for scalability patterns such as pagination, caching, or asynchronous processing.
+- The feature introduces filtering logic inside the main data retrieval flow, which reduces separation of concerns; a service-layer abstraction would improve long-term maintainability and testing flexibility.
+- There is no explicit architectural boundary between controller, service, and data access layers, making the system harder to scale or extend as new filtering rules are added.
+- Security concern: user access control is not explicitly enforced within the filtering logic, which could lead to unauthorized data exposure in multi-user scenarios.
+- Input validation is incomplete; the category parameter is not strictly validated against a defined schema or whitelist, increasing risk of invalid or unexpected inputs entering the system.
+- Error handling is not standardized; the system may return empty results for invalid states instead of structured error responses with proper status codes and messages.
+- Performance concern: filtering is performed in-memory rather than at the database/query level, which will not scale efficiently with large datasets.
+- The current implementation repeats string normalization logic inside filtering operations, which introduces unnecessary computation overhead and should be extracted into a reusable utility.
+- Logging practices are not fully safe for production; sensitive fields (such as user identifiers or financial values) may be exposed in debug logs.
+- Test coverage is not clearly demonstrated for edge cases such as empty datasets, invalid categories, and null inputs, which are critical for reliability.
+- API contract is not formally documented; expected inputs, outputs, and error formats are unclear for external consumers of the endpoint.
