@@ -1,5 +1,4 @@
 ## Reviewer Comments
-
 - Missing architectural separation between controller, service, and data layers, reducing long-term scalability and maintainability.
 - Business logic is tightly coupled with filtering logic, making the code harder to test and extend in future iterations.
 - Security issue: user authorization is not explicitly enforced in the filtering flow, risking potential cross-user data access in multi-user environments.
